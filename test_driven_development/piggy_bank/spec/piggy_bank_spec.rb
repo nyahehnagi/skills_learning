@@ -36,6 +36,5 @@ describe PiggyBank do
       piggy_bank.break
       expect(piggy_bank.break).to eq "You have raided the piggy bank already"
     end
-  end
-  
+  end1
 end

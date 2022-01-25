@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# class PiggyBank
 class PiggyBank
   def initialize
     @contents = 0
