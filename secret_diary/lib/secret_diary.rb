@@ -1,5 +1,11 @@
 class SecretDiary
 
+  attr_reader :locked
+  
+  def initialize
+    @locked = true
+  end
+
   def unlock
   end
 
@@ -11,5 +17,5 @@ class SecretDiary
 
   def add_entry
   end
-  
+
 end
