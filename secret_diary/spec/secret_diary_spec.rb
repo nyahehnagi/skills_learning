@@ -10,4 +10,8 @@ describe SecretDiary do
     expect(subject.locked).to be true
   end
 
+  it "should raise an error if add_entry is called when locked" do
+    expect { subject.add_entry }.to raise_error("Diary is locked")
+  end
+
 end

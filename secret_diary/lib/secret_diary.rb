@@ -1,7 +1,7 @@
 class SecretDiary
 
   attr_reader :locked
-  
+
   def initialize
     @locked = true
   end
@@ -16,6 +16,9 @@ class SecretDiary
   end
 
   def add_entry
+    if locked
+      raise "Diary is locked"
+    end
   end
 
 end
