@@ -15,15 +15,20 @@ class SecretDiary
   end
 
   def get_entries
-    raise "Diary is locked"
+    if @locked
+      raise_error
+    end
   end
 
   def add_entry
-    
     if @locked
-        raise "Diary is locked" 
+      raise_error
     end
-    
   end
 
+  # how to make this private and test it?
+  def raise_error
+    raise "Diary is locked"
+  end
+  
 end
