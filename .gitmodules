@@ -1,0 +1,3 @@
+[submodule "skills-workshops"]
+	path = skills-workshops
+	url = git@github.com:makersacademy/skills-workshops.git
