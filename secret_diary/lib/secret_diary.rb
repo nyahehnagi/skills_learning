@@ -16,9 +16,7 @@ class SecretDiary
   end
 
   def add_entry
-    if locked
-      raise "Diary is locked"
-    end
+    raise "Diary is locked"
   end
 
 end
