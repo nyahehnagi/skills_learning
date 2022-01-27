@@ -1,4 +1,4 @@
-require_relative '../lib/secret_diary.rb'
+require_relative '../lib/secret_diary'
 
 describe SecretDiary do
   it { should respond_to(:unlock) }
