@@ -16,6 +16,11 @@ describe SecretDiary do
     expect(subject.locked).to be false
   end
 
+  
+  it "should lock the diary" do
+    subject.lock
+    expect(subject.locked).to be true
+  end
 
   describe "#add_entry" do
     it "should when unlocked to be called without error" do
@@ -37,8 +42,14 @@ describe SecretDiary do
       subject.unlock
       expect { subject.get_entries }.not_to raise_error
     end
+
+    it "should after being unlocked, then locked, raise an error" do
+      subject.unlock
+      subject.lock
+      expect { subject.get_entries }.to raise_error("Diary is locked")
+    end
   end
-  
+
   describe "#raise_error" do
     it "should raise an error" do
       expect { subject.raise_error }.to raise_error("Diary is locked")

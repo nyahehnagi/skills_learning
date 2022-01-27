@@ -11,7 +11,7 @@ class SecretDiary
   end
 
   def lock
-   
+    @locked = true
   end
 
   def get_entries
@@ -30,5 +30,5 @@ class SecretDiary
   def raise_error
     raise "Diary is locked"
   end
-  
+
 end
