@@ -1,6 +1,7 @@
 require_relative '../lib/secret_diary'
 
 describe SecretDiary do
+  let(:lock) { double(:lock, :locked? => true) }
 
   it { should respond_to(:unlock) }
   it { should respond_to(:lock) }
@@ -8,19 +9,20 @@ describe SecretDiary do
   it { should respond_to(:get_entries) }
   
 
-  it "should be locked when first created" do
-    expect(subject.locked).to be true
-  end
+  # it "should be locked when first created" do
+  #   expect(subject.locked).to be true
+  # end
 
-  it "should unlock the diary" do
-    subject.unlock
-    expect(subject.locked).to be false
-  end
+  # it "should unlock the diary" do
+  #   lock_spy = spy('lock')
+  #   subject.unlock
+  #   expect(lock_spy).to have_recieved(:unlock)
+  # end
 
-  it "should lock the diary" do
-    subject.lock
-    expect(subject.locked).to be true
-  end
+  # it "should lock the diary" do
+  #   subject.lock
+  #   expect(subject.locked).to be true
+  # end
 
   describe "#add_entry" do
     it "should when unlocked to be called without error" do
