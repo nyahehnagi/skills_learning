@@ -1,11 +1,12 @@
 require_relative '../lib/secret_diary'
 
 describe SecretDiary do
+
   it { should respond_to(:unlock) }
   it { should respond_to(:lock) }
   it { should respond_to(:add_entry) }
   it { should respond_to(:get_entries) }
-  it { should respond_to(:raise_error) }
+  
 
   it "should be locked when first created" do
     expect(subject.locked).to be true
@@ -16,7 +17,6 @@ describe SecretDiary do
     expect(subject.locked).to be false
   end
 
-  
   it "should lock the diary" do
     subject.lock
     expect(subject.locked).to be true
@@ -47,12 +47,6 @@ describe SecretDiary do
       subject.unlock
       subject.lock
       expect { subject.get_entries }.to raise_error("Diary is locked")
-    end
-  end
-
-  describe "#raise_error" do
-    it "should raise an error" do
-      expect { subject.raise_error }.to raise_error("Diary is locked")
     end
   end
 

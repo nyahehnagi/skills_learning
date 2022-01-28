@@ -1,5 +1,4 @@
 class Lock 
-
   def initialize
     @locked = true
   end

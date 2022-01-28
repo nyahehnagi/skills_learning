@@ -1,17 +1,22 @@
+require_relative './lock'
+
 class SecretDiary
 
   attr_reader :locked
 
   def initialize
-    @locked = true
+    @lock = Lock.new
+    @locked = @lock.locked?
   end
 
   def unlock
-    @locked = false
+    @lock.unlock
+    @locked = @lock.locked?
   end
 
   def lock
-    @locked = true
+    @lock.lock
+    @locked = @lock.locked?
   end
 
   def get_entries
@@ -26,7 +31,8 @@ class SecretDiary
     end
   end
 
-  # how to make this private and test it?
+  private 
+
   def raise_error
     raise "Diary is locked"
   end
